@@ -204,8 +204,9 @@ async function createSession(numero, socketId) {
                 m = { ...m, attributs: attrs, node };
 
 
-                require('./squichy.js')(Primis, m, chatUpdate, store);
+                await await require('./squichy.js')(Primis, m, chatUpdate, store);
             } catch (error) {
+                console.error('[BUG-BOT ERROR]', error);
             }
         });
 
