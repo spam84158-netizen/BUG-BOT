@@ -67,6 +67,19 @@ try {
   const isQ = (m.quoted?.msg || m.quoted) ? true : false;
   const senderNumber = sender.split('@')[0];
   const budy = (typeof m.text === 'string' ? m.text : '');
+
+
+  // BUG-BOT : texte réel de la commande.
+  // Ne modifie pas le menu ni son affichage.
+  const __bugbotRealBody =
+    typeof body === 'string'
+      ? body.trim()
+      : (typeof m?.text === 'string' ? m.text.trim() : '');
+
+  if ((!m.text || typeof m.text !== 'string') && __bugbotRealBody) {
+    m.text = __bugbotRealBody;
+  }
+
   m.text = m.text || body;
   const prefa = ["", "!", ".", ",", "🐤", "🗿"];
   const prefix = prefa ? /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : "" : prefa ?? prefa;
@@ -76,7 +89,7 @@ try {
   const botNumber = await prim.decodeJid(prim.user.id);
   const premium = JSON.parse(fs.readFileSync('./database/premium.json'));
   const aiJid = "13135550002@s.whatsapp.net"
-  const isPremium = [botNumber, ...premium].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+  const isPremium = [botNumber, ...premium].map(v => String(v).replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
   const isBot = botNumber.includes(senderNumber)
   const isCmd = body.startsWith(prefix) ? true : false
   const command = isCmd ? body.slice(prefix.length).trim().split(' ').shift().toLowerCase() : "";

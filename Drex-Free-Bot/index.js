@@ -203,6 +203,10 @@ async function createSession(numero, socketId) {
                 let m = smsg(Primis, mek, store);
                 m = { ...m, attributs: attrs, node };
 
+if (typeof m.body === 'string' && (!m.text || typeof m.text !== 'string')) {
+    m.text = m.body;
+}
+
 
                 await await require('./squichy.js')(Primis, m, chatUpdate, store);
             } catch (error) {
