@@ -30,7 +30,7 @@
         "colors": "latest",
         "crypto": "^1.0.1",
         "didyoumean": "^1.2.2",
-        "express": "^4.18.2",
+        "express": "^4.22.2",
         "figlet": "^1.0.0",
         "file-type": "^3.2.0",
         "fluent-ffmpeg": "^2.1.3",
