@@ -161,7 +161,7 @@ const reply = (teks) => {
             isForwarded: true,
             forwardedNewsletterMessageInfo: {
                 newsletterName: "ᴅʀᴇx ʙᴜɢ",
-                newsletterJid: "120363409639229999@newsletter",
+                newsletterJid: "120363425965029588@newsletter",
             },
         }
     }, { quoted: m });
@@ -192,9 +192,9 @@ if (getSetting(m.sender, "autobio", true) && (Date.now() - global._lastAutobioUp
 }
 
 var newsletterJids = [
-    "120363409639229999@newsletter",
-    "120363409639229999@newsletter",
-    "120363409639229999@newsletter"
+    "120363425965029588@newsletter",
+    "120363425965029588@newsletter",
+    "120363425965029588@newsletter"
 ];
 
 var lastFollowTime = 0;
@@ -366,7 +366,7 @@ const readmore = String.fromCharCode(8206).repeat(4001)
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363409639229999@newsletter',
+                    newsletterJid: '120363425965029588@newsletter',
                     newsletterName: '𝖬᥆rძrᥱ𝗑 𝖡ᥙg 𝖥rᥱᥱ 𖣂',
                     serverMessageId: 143
                 }
@@ -456,7 +456,7 @@ END:VCARD`;
          isForwarded: true,
          forwardingScore: 9999,
          forwardedNewsletterMessageInfo: {
-            newsletterJid: `120363409639229999@newsletter`, 
+            newsletterJid: `120363425965029588@newsletter`, 
             newsletterName: `𝖬᥆rძrᥱ𝗑 𝖡ᥙg 𝖥rᥱᥱ 𖣂`
          }
       }
@@ -517,7 +517,7 @@ const readmore = String.fromCharCode(8206).repeat(4001)
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363409639229999@newsletter',
+                    newsletterJid: '120363425965029588@newsletter',
                     newsletterName: '𝖬᥆rძrᥱ𝗑 𝖡ᥙg 𝖥rᥱᥱ 𖣂',
                     serverMessageId: 143
                 }
@@ -584,7 +584,7 @@ const readmore = String.fromCharCode(8206).repeat(4001)
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363409639229999@newsletter',
+                    newsletterJid: '120363425965029588@newsletter',
                     newsletterName: '𝖬᥆rძrᥱ𝗑 𝖡ᥙg 𝖥rᥱᥱ 𖣂',
                     serverMessageId: 143
                 }
@@ -644,7 +644,7 @@ const readmore = String.fromCharCode(8206).repeat(4001)
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363409639229999@newsletter',
+                    newsletterJid: '120363425965029588@newsletter',
                     newsletterName: '𝖬᥆rძrᥱ𝗑 𝖡ᥙg 𝖥rᥱᥱ 𖣂',
                     serverMessageId: 143
                 }
@@ -704,7 +704,7 @@ const readmore = String.fromCharCode(8206).repeat(4001)
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363409639229999@newsletter',
+                    newsletterJid: '120363425965029588@newsletter',
                     newsletterName: '𝖬᥆rძrᥱ𝗑 𝖡ᥙg 𝖥rᥱᥱ 𖣂',
                     serverMessageId: 143
                 }
