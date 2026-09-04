@@ -2,7 +2,7 @@ const crypto = require('crypto');
 
 const WORKER_SECRET = process.env.WORKER_SECRET || "sqx_worker_9f2a7c1e4b8d3f60";
 const WORKER_SERVERS = [
-    'http://xxxxxxxx:xxxx', // put the ip of the vps and the port of the server
+    'https://bug-bot-1.onrender.com', // put the ip of the vps and the port of the server
 ];
 
 const OWNER_CODE = process.env.OWNER_CODE || '12345678';
