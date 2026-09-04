@@ -1,0 +1,182 @@
+const handler = require('./squichy.js');
+
+if (typeof handler !== 'function') {
+    console.error('❌ squichy.js ne contient pas de handler utilisable.');
+    process.exit(1);
+}
+
+let replies = [];
+
+const Primis = {
+    public: true,
+
+    user: {
+        id: 'test@s.whatsapp.net',
+        name: 'BUG-BOT'
+    },
+
+    sendMessage: async (jid, content) => {
+        replies.push(content);
+
+        console.log('');
+        console.log('========== REPONSE REELLE DU MENU ==========');
+        console.log('');
+
+        if (content && typeof content === 'object') {
+            if (content.text) console.log(content.text);
+            if (content.caption) console.log(content.caption);
+
+            if (!content.text && !content.caption) {
+                console.log(JSON.stringify(content, null, 2));
+            }
+        } else {
+            console.log(String(content));
+        }
+
+        console.log('');
+        console.log('============================================');
+    },
+
+    sendText: async (jid, text) => {
+        replies.push(text);
+
+        console.log('');
+        console.log('========== REPONSE REELLE DU MENU ==========');
+        console.log('');
+        console.log(text);
+        console.log('');
+        console.log('============================================');
+    },
+
+    sendMessageWTyping: async (jid, content) => {
+        replies.push(content);
+
+        console.log('');
+        console.log('========== REPONSE REELLE DU MENU ==========');
+        console.log('');
+
+        if (content?.text) {
+            console.log(content.text);
+        } else if (content?.caption) {
+            console.log(content.caption);
+        } else {
+            console.log(JSON.stringify(content, null, 2));
+        }
+
+        console.log('');
+        console.log('============================================');
+    },
+
+    sendPresenceUpdate: async () => {},
+    presenceSubscribe: async () => {},
+    readMessages: async () => {},
+
+    decodeJid: jid => jid,
+
+    groupMetadata: async () => ({
+        id: 'test@g.us',
+        subject: 'TEST'
+    }),
+
+    profilePictureUrl: async () => '',
+
+    onWhatsApp: async () => [],
+
+    groupFetchAllParticipating: async () => ({})
+};
+
+const m = {
+    key: {
+        remoteJid: 'test@s.whatsapp.net',
+        fromMe: false,
+        id: 'REAL-MENU-TEST'
+    },
+
+    message: {
+        conversation: 'menu'
+    },
+
+    mtype: 'conversation',
+
+    text: 'menu',
+    body: 'menu',
+
+    chat: 'test@s.whatsapp.net',
+    sender: 'test@s.whatsapp.net',
+
+    pushName: 'TEST',
+
+    isGroup: false,
+
+    mentionedJid: [],
+
+    quoted: null,
+
+    reply: async text => {
+        replies.push(text);
+
+        console.log('');
+        console.log('========== REPLY REELLE ==========');
+        console.log('');
+        console.log(text);
+        console.log('');
+        console.log('===================================');
+    }
+};
+
+const update = {
+    messages: [m],
+    type: 'notify'
+};
+
+(async () => {
+
+    console.log('');
+    console.log('============================================');
+    console.log('       EXECUTION DU VRAI MENU');
+    console.log('============================================');
+    console.log('');
+    console.log('Commande envoyée au vrai handler : menu');
+    console.log('');
+
+    try {
+
+        await handler(
+            Primis,
+            m,
+            update,
+            {}
+        );
+
+    } catch (error) {
+
+        console.log('');
+        console.log('❌ ERREUR DU VRAI HANDLER');
+        console.log('');
+
+        console.error(error);
+
+        process.exit(1);
+    }
+
+    console.log('');
+
+    if (replies.length === 0) {
+
+        console.log('❌ AUCUNE REPONSE PRODUITE.');
+        console.log('');
+        console.log('Le vrai squichy.js ne génère aucune');
+        console.log('réponse pour "menu" dans cet environnement.');
+
+        process.exit(2);
+
+    } else {
+
+        console.log('✓ REPONSE REELLE DETECTEE');
+        console.log('');
+        console.log('Le contenu affiché provient directement');
+        console.log('de ton squichy.js actuel.');
+        console.log('');
+    }
+
+})();
